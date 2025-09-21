@@ -124,7 +124,7 @@ Once configured in Claude Desktop, you can use natural language commands like:
 ## Requirements
 
 - Node.js 18+
-- A running Firecrawl self-hosted instance (see [Firecrawl Self-Hosting Guide](https://github.com/mendableai/firecrawl/tree/main/apps/api#self-hosting))
+- A running Firecrawl self-hosted instance (see [Firecrawl Self-Hosting Guide](https://github.com/firecrawl/firecrawl/blob/main/SELF_HOST.md))
 - Network access to the Firecrawl instance
 
 ## Troubleshooting
