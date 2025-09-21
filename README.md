@@ -19,26 +19,44 @@ npm run build
 
 ## Configuration
 
-The server is pre-configured to connect to a Firecrawl instance at `http://192.168.1.210:3002`.
+The server connects to your Firecrawl instance using the `FIRECRAWL_URL` environment variable. By default, it connects to `http://localhost:3002`.
 
-To change the Firecrawl URL, modify the `baseURL` in `src/index.ts`:
-
-```typescript
-const firecrawl = new FirecrawlLocalClient("http://your-firecrawl-host:3002");
-```
+To change the Firecrawl URL, set the `FIRECRAWL_URL` environment variable in your MCP configuration.
 
 ## Usage
 
-### As an MCP Server
+### With Claude Desktop
 
-Add this to your Claude Desktop configuration:
+Add this to your Claude Desktop configuration file (`claude_desktop_config.json`):
 
 ```json
 {
   "mcpServers": {
     "firecrawl-local": {
       "command": "node",
-      "args": ["/path/to/firecrawl-local-mcp/dist/index.js"]
+      "args": ["/absolute/path/to/firecrawl-local-mcp/dist/index.js"],
+      "env": {
+        "FIRECRAWL_URL": "http://localhost:3002"
+      }
+    }
+  }
+}
+```
+
+### With Cline
+
+Add this to your Cline MCP configuration file:
+
+```json
+{
+  "mcpServers": {
+    "firecrawl-local": {
+      "command": "node",
+      "args": ["dist/index.js"],
+      "cwd": "/absolute/path/to/firecrawl-local-mcp",
+      "env": {
+        "FIRECRAWL_URL": "http://localhost:3002"
+      }
     }
   }
 }
@@ -106,7 +124,7 @@ Once configured in Claude Desktop, you can use natural language commands like:
 ## Requirements
 
 - Node.js 18+
-- A running Firecrawl self-hosted instance
+- A running Firecrawl self-hosted instance (see [Firecrawl Self-Hosting Guide](https://github.com/mendableai/firecrawl/tree/main/apps/api#self-hosting))
 - Network access to the Firecrawl instance
 
 ## Troubleshooting
