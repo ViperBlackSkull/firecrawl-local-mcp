@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "firecrawl-local": {
+      "command": "node",
+      "args": ["dist/index.js"],
+      "cwd": "/home/viper/Code/firecrawl-local-mcp",
+      "env": {
+        "FIRECRAWL_URL": "http://localhost:3002"
+      }
+    }
+  }
+}
